@@ -1,2 +1,11 @@
+# === Ambiente Virtual ===
 venv
+
+# === Banco de Dados ===
 db*
+
+# === Cache ===
+*/__pycache__
+/__pycache__
+/__pycache__/*
+
