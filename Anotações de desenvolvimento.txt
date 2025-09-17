@@ -1,0 +1,12 @@
+Desenvolvimento de um sistema de Blogger.
+
+Preciso criar algumas telas, como a:
+Login;
+Logout;
+Registro;
+DashBoard para criar os post;
+Um reels para listar os post's;
+Pagina do post.
+
+com base nisso podemos construir nosso Blogger.
+
