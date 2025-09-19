@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'core',
     'widget_tweaks', # Este app e uma biblioteca que nos permite passar atributos a formularios direto pelo template.
-    'account',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -139,4 +139,4 @@ STATIC_ROOT = "staticfile/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGOUT_REDIRECT_URL = "account:loginview" # Redirecionamento para o login quando o usuario fazer o logout.
+LOGOUT_REDIRECT_URL = "accounts:loginview" # Redirecionamento para o login quando o usuario fazer o logout.

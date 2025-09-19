@@ -1,22 +1,83 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>DashBoard</title> <!-- Titulo da Pagina -->
+
+    <!-- Inicio dos Meus Arquivos Estaticos Personalizado -->
+    <link rel="stylesheet" href="{% static "core/style.css" %}"> <!-- Arquivo estatico do app -->
+    
+    <link rel="stylesheet" href="{% static "global/reset.css" %}"> <!-- Arquivos estatico Global -->
+    <!-- Fim dos Meus Arquivos Estaticos Personalizados -->
+
+
+    <!-- Inicio de importacoes de Fonts Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/solid.min.css" integrity="sha512-EHa6vH03/Ty92WahM0/tet1Qicl76zihDCkBnFhN3kFGQkC+mc86d7V+6y2ypiLbk3h0beZAGdUpzfMcb06cMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fim de importacoes de Fonts Awesome -->
+
 </head>
+
 <body>
-    <h1> Pagina Home 1 </h1>
-    {% if user.is_authenticated %}
-    
-        <form action="{% url 'account:logoutview' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="logout"> Logout </button>
-        </form>
-    {% else %}
-        <!-- Se o usuário não estiver logado, mostre o link de login -->
-        <a href="{% url 'account:loginview' %}">Entrar</a>
-    {% endif %}
-    
+
+    <!-- Inicio do Cabecalho -->
+    <header class="cabecalho">
+
+        <div class="container">
+
+            <h1> <i class="fa-brands fa-microblog"></i> DashBoard </h1>
+
+            <div class="profile-container">
+                <button id="profile-btn" class="profile-button">
+                    <i class="fa-solid fa-circle-user icon-profile"></i>
+                </button>
+                
+                <div id="profile-dropdown" class="profile-menu hidden">
+                    <a href="#"> <i class="fa-solid fa-gear"></i> Conta</a>
+                    {% if user.is_authenticated %}
+                
+                        <form action="{% url 'accounts:logoutview' %}" method="post">
+                            {% csrf_token %}
+                                <button type="submit" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Sair </button>
+                        </form>
+
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <!-- Fim do Cabecalho -->
+
+
+    <script>
+        // Obtém os elementos pelo ID
+        const profileBtn = document.getElementById('profile-btn');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        // Adiciona um "ouvinte" de eventos para o clique no botão
+        profileBtn.addEventListener('click', () => {
+        // Alterna a classe 'visible' para mostrar/esconder o menu
+        profileDropdown.classList.toggle('visible');
+        profileDropdown.classList.toggle('hidden');
+        });
+
+        // Opcional: Fecha o menu se o usuário clicar fora dele
+        document.addEventListener('click', (event) => {
+        if (!profileDropdown.contains(event.target) && !profileBtn.contains(event.target)) {
+            // Se o clique não foi no menu nem no botão, esconde o menu
+            profileDropdown.classList.remove('visible');
+            profileDropdown.classList.add('hidden');
+        }
+        });
+    </script>
 </body>
 </html>

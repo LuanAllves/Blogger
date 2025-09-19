@@ -1,9 +1,9 @@
 Desenvolvimento de um sistema de Blogger.
 
 Preciso criar algumas telas, como a:
-Login;
-Logout;
-Registro;
+Login; # Pagina de Login criada e funcionando com sucesso!
+Logout; # Logout funcionando corretamente.
+Registro; #
 DashBoard para criar os post;
 Um reels para listar os post's;
 Pagina do post.
