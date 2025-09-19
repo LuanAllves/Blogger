@@ -1,0 +1,41 @@
+<!-- Inicio do Cabecalho -->
+<header>
+    <div class="main-header-container">
+        <div class="main-header container">
+
+            <h1> 
+                <a class="main-logo" href="/">
+                    <i class="fa-brands fa-microblog"></i>
+                    <span> Seu Blog </span>
+                </a>
+
+            </h1>
+
+            <div class="profile-container">
+                <button id="profile-btn" class="profile-button main-profile">
+                    <i class="fa-solid fa-circle-user icon-profile"></i>
+                </button>
+                
+                <div id="profile-dropdown" class="profile-menu hidden">
+
+                    <a href="#"> 
+                        <i class="fa-solid fa-gear"></i> 
+                        <span> Conta </span>
+                    </a>
+
+                    {% if user.is_authenticated %}
+                
+                        <form action="{% url 'accounts:logoutview' %}" method="post">
+                            {% csrf_token %}
+                                <button type="submit" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Sair </button>
+                        </form>
+
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</header>
+<!-- Fim do Cabecalho -->

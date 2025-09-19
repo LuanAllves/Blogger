@@ -9,7 +9,7 @@ def register_view(request):
 
 # Views da Dashboard, aqui o usuario cria seus post's
 def dashboard_view(request):
-    return render(request, 'core/dashboard.html')
+    return render(request, 'core/pages/dashboard.html')
 
 # Views Reels para mostrar todos os post's.
 def reels_view(request):

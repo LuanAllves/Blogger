@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% include "core/partials/head.html" %}
+
+<body>
+    
+    {% include "core/partials/header.html" %}
+
+    {% include "core/partials/search.html" %}
+
+    <main class="main-content-container">
+        <div class="main-content container">
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+        </div>
+    </main>
+
+    <!-- Inicio dos Scripts -->
+    <script>
+        // Obtém os elementos pelo ID
+        const profileBtn = document.getElementById('profile-btn');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        // Adiciona um "ouvinte" de eventos para o clique no botão
+        profileBtn.addEventListener('click', () => {
+        // Alterna a classe 'visible' para mostrar/esconder o menu
+        profileDropdown.classList.toggle('visible');
+        profileDropdown.classList.toggle('hidden');
+        });
+
+        // Opcional: Fecha o menu se o usuário clicar fora dele
+        document.addEventListener('click', (event) => {
+        if (!profileDropdown.contains(event.target) && !profileBtn.contains(event.target)) {
+            // Se o clique não foi no menu nem no botão, esconde o menu
+            profileDropdown.classList.remove('visible');
+            profileDropdown.classList.add('hidden');
+        }
+        });
+    </script>
+    <!-- Fim dos Scripts -->
+</body>
+</html>
+
+
